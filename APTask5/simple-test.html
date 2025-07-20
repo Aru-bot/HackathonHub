@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Button Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        button { margin: 10px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Simple Button Test</h1>
+    
+    <div id="status"></div>
+    
+    <button id="generateIdeasBtn">Generate Ideas</button>
+    <button id="addIdeaBtn">Add Your Idea</button>
+    <button id="refreshApiBtn">Refresh API</button>
+    
+    <div id="topicsGrid" class="topics-grid"></div>
+    <div class="skills-grid"></div>
+    
+    <div id="results"></div>
+
+    <script src="script.js"></script>
+    <script>
+        function log(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            results.appendChild(div);
+        }
+
+        // Test button clicks
+        document.getElementById('generateIdeasBtn').addEventListener('click', function() {
+            log('Generate Ideas button clicked!', 'success');
+        });
+
+        document.getElementById('addIdeaBtn').addEventListener('click', function() {
+            log('Add Idea button clicked!', 'success');
+        });
+
+        document.getElementById('refreshApiBtn').addEventListener('click', function() {
+            log('Refresh API button clicked!', 'success');
+        });
+
+        // Check if script loaded
+        window.addEventListener('load', function() {
+            log('Page loaded, checking script...', 'info');
+            
+            if (typeof generateIdeas === 'function') {
+                log('generateIdeas function found', 'success');
+            } else {
+                log('generateIdeas function missing', 'error');
+            }
+            
+            if (typeof setupEventListeners === 'function') {
+                log('setupEventListeners function found', 'success');
+            } else {
+                log('setupEventListeners function missing', 'error');
+            }
+        });
+    </script>
+</body>
+</html> 

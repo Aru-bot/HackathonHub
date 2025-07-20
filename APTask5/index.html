@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackathonHub - Idea Generator & Project Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cyberpunk Grid Background -->
+    <div class="cyberpunk-grid">
+        <div class="grid-line horizontal" style="top: 25%"></div>
+        <div class="grid-line horizontal" style="top: 50%"></div>
+        <div class="grid-line horizontal" style="top: 75%"></div>
+        <div class="grid-line vertical" style="left: 25%"></div>
+        <div class="grid-line vertical" style="left: 50%"></div>
+        <div class="grid-line vertical" style="left: 75%"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>HackathonHub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#ideas" class="nav-link">Ideas</a></li>
+                <li><a href="#team" class="nav-link">Teams</a></li>
+                <li><a href="#timer" class="nav-link">Hackathons</a></li>
+                <li><a href="#resources" class="nav-link">Resources</a></li>
+            </ul>
+            <div class="nav-auth">
+                <button class="btn btn-outline">Sign In</button>
+                <button class="btn btn-primary">Sign Up</button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#ideas" class="nav-link">Ideas</a></li>
+            <li><a href="#team" class="nav-link">Teams</a></li>
+            <li><a href="#timer" class="nav-link">Hackathons</a></li>
+            <li><a href="#resources" class="nav-link">Resources</a></li>
+        </ul>
+        <div class="nav-auth">
+            <button class="btn btn-outline">Sign In</button>
+            <button class="btn btn-primary">Sign Up</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transform Your Skills Into Amazing Projects</h1>
+                <p class="hero-subtitle">Discover personalized hackathon ideas, find teammates, and build something incredible together.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" id="startQuizBtn">
+                        <i class="fas fa-play"></i>
+                        Start Idea Quiz
+                    </button>
+                    <button class="btn btn-outline btn-large" id="exploreIdeasBtn">
+                        <i class="fas fa-lightbulb"></i>
+                        Explore Ideas
+                    </button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Web Development</h3>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Apps</h3>
+                </div>
+                <div class="floating-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI/ML</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Selection Section -->
+    <section id="skills" class="skills-section">
+
+        
+        <div class="container">
+            <h2 class="section-title">Select Your Skills</h2>
+            <p class="section-subtitle">Choose the skills you have or want to learn to get personalized project suggestions</p>
+            
+            <div class="skills-grid">
+                <!-- Skills will be dynamically generated here -->
+            </div>
+
+            <div class="topic-selection">
+                <div class="section-header">
+                    <h3>🎯 Choose Your Topics</h3>
+                    <p>Select the areas that interest you most. Each topic includes example projects to inspire your creativity!</p>
+                    <div class="topic-stats">
+                        <span class="stat-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>12 Categories</span>
+                        </span>
+                        <span class="stat-item">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>36+ Examples</span>
+                        </span>
+                        <span class="stat-item">
+                            <i class="fas fa-magic"></i>
+                            <span>Smart Matching</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="topics-grid" id="topicsGrid">
+                    <!-- Topics will be dynamically generated here -->
+                </div>
+            </div>
+
+            <div class="social-impact-filter">
+                <h3>Social Impact Focus</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" id="socialImpact">
+                        <span>Show projects with social impact</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-large" id="generateIdeasBtn">
+                <i class="fas fa-magic"></i>
+                Generate Ideas
+            </button>
+            <button class="btn btn-outline btn-large" id="refreshApiBtn" style="margin-top: 16px;">
+                <i class="fas fa-sync-alt"></i>
+                Refresh from APIs
+            </button>
+            <button class="btn btn-outline btn-large" id="addIdeaBtn" style="margin-top: 16px;">
+                <i class="fas fa-plus"></i>
+                Add Your Idea
+            </button>
+        </div>
+    </section>
+
+    <!-- Ideas Display Section -->
+    <section id="ideas" class="ideas-section">
+        <div class="container">
+            <h2 class="section-title">Your Personalized Ideas</h2>
+            <div class="ideas-filters">
+                <select id="difficultyFilter" class="filter-select">
+                    <option value="">All Difficulties</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">All Categories</option>
+                    <option value="web">Web Development</option>
+                    <option value="mobile">Mobile Apps</option>
+                    <option value="ai">AI/ML</option>
+                    <option value="social">Social Impact</option>
+                </select>
+            </div>
+            
+            <div id="ideasGrid" class="ideas-grid">
+                <!-- Ideas will be dynamically generated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Finder Section -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <h2 class="section-title">Find Your Team</h2>
+            <div class="team-options">
+                <div class="team-card">
+                    <h3 style="color: black;">Create a Team</h3>
+                    <p>Start a new project and invite teammates</p>
+                    <button class="btn btn-primary" id="createTeamBtn">Create Team</button>
+                </div>
+                <div class="team-card">
+                    <h3 style="color:black;">Join a Team</h3>
+                    <p>Find existing teams looking for members</p>
+                    <button class="btn btn-outline" id="joinTeamBtn">Browse Teams</button>
+                </div>
+            </div>
+            
+            <div id="teamsList" class="teams-list">
+                <!-- Teams will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Hackathon Timer -->
+    <section id="timer" class="timer-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Hackathons</h2>
+            <div id="hackathonTimer" class="hackathon-timer">
+                <div class="timer-card">
+                    <h3>Next Major Hackathon</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="time-unit">
+                            <span id="days">00</span>
+                            <label>Days</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="hours">00</span>
+                            <label>Hours</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="minutes">00</span>
+                            <label>Minutes</label>
+                        </div>
+                        <div class="time-unit">
+                            <span id="seconds">00</span>
+                            <label>Seconds</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources-section">
+        <div class="container">
+            <h2 class="section-title">Learning Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <h3>GitHub Projects</h3>
+                    <div id="githubProjects" class="github-projects">
+                        <!-- GitHub projects will be loaded here -->
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <h3>Learning Paths</h3>
+                    <div class="learning-paths">
+                        <div class="path-item">
+                            <h4>Frontend Development</h4>
+                            <ol>
+                                <li>Learn HTML/CSS fundamentals</li>
+                                <li>Master JavaScript basics</li>
+                                <li>Explore React/Vue.js</li>
+                                <li>Practice responsive design</li>
+                            </ol>
+                        </div>
+                        <div class="path-item">
+                            <h4>Backend Development</h4>
+                            <ol>
+                                <li>Choose a language (Node.js/Python)</li>
+                                <li>Learn database concepts</li>
+                                <li>Build REST APIs</li>
+                                <li>Deploy your application</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <h2 class="section-title">Community & Success Stories</h2>
+            <div class="success-stories">
+                <div class="story-card">
+                    <div class="story-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="story-content">
+                        <h4>Sarah Chen</h4>
+                        <p>"Built a phishing awareness tool that helped 10,000+ users learn about online security. Won first place at TechCrunch Disrupt!"</p>
+                        <span class="story-tags">#Security #Education #Winner</span>
+                    </div>
+                </div>
+                <div class="story-card">
+                    <div class="story-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="story-content">
+                        <h4>Marcus Rodriguez</h4>
+                        <p>"Created a traffic management system using AI that reduced commute times by 30%. Now deployed in 3 major cities!"</p>
+                        <span class="story-tags">#AI #Transportation #Impact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Journal Section -->
+    <section id="journal" class="journal-section">
+        <div class="container">
+            <h2 class="section-title">My Project Journal</h2>
+            <p class="section-subtitle">Track your ideas, progress, and learning journey</p>
+            
+            <div class="journal-controls">
+                <button class="btn btn-primary" id="openJournalBtn">
+                    <i class="fas fa-book-open"></i>
+                    Open My Journal
+                </button>
+                <button class="btn btn-outline" id="createNewEntryBtn">
+                    <i class="fas fa-plus"></i>
+                    New Entry
+                </button>
+            </div>
+            
+            <div class="journal-stats">
+                <div class="stat-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3 id="totalIdeas">0</h3>
+                    <p>Total Ideas</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3 id="completedProjects">0</h3>
+                    <p>Completed</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3 id="inProgress">0</h3>
+                    <p>In Progress</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Idea Journal Modal -->
+    <div id="ideaJournalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>My Idea Journal</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="savedIdeas" class="saved-ideas">
+                    <!-- Saved ideas will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Find Your Perfect Project</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="quizContainer" class="quiz-container">
+                    <!-- Quiz questions will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Idea Modal -->
+    <div id="addIdeaModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Your Project Idea</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addIdeaForm" class="add-idea-form">
+                    <div class="form-group">
+                        <label for="ideaTitle">Project Title *</label>
+                        <input type="text" id="ideaTitle" name="title" required placeholder="Enter your project title">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaDescription">Description *</label>
+                        <textarea id="ideaDescription" name="description" required placeholder="Describe your project idea in detail"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="ideaDifficulty">Difficulty Level *</label>
+                            <select id="ideaDifficulty" name="difficulty" required>
+                                <option value="">Select difficulty</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="ideaCategory">Category *</label>
+                            <select id="ideaCategory" name="category" required>
+                                <option value="">Select category</option>
+                                <option value="web">Web Development</option>
+                                <option value="mobile">Mobile Apps</option>
+                                <option value="ai">AI/ML</option>
+                                <option value="social">Social Impact</option>
+                                <option value="game">Game Development</option>
+                                <option value="iot">IoT & Hardware</option>
+                                <option value="blockchain">Blockchain</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="data">Data & Analytics</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaSkills">Required Skills</label>
+                        <input type="text" id="ideaSkills" name="skills" placeholder="e.g., JavaScript, Python, React (comma separated)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaTopics">Topics</label>
+                        <input type="text" id="ideaTopics" name="topics" placeholder="e.g., education, health, environment (comma separated)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaFeatures">Key Features</label>
+                        <textarea id="ideaFeatures" name="features" placeholder="List the main features of your project"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaImpact">Social Impact</label>
+                        <textarea id="ideaImpact" name="impact" placeholder="How does this project help society? (optional)"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaResources">Resources & Links</label>
+                        <input type="text" id="ideaResources" name="resources" placeholder="GitHub links, APIs, tutorials, etc.">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ideaAuthor">Your Name</label>
+                        <input type="text" id="ideaAuthor" name="author" placeholder="Your name (optional)">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="ideaSocialImpact" name="socialImpact">
+                            <span>This project has social impact</span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" id="cancelAddIdea">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit Idea</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>HackathonHub</h4>
+                    <p>Empowering developers to build amazing projects together.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#ideas">Ideas</a></li>
+                        <li><a href="#team">Team Finder</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 HackathonHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

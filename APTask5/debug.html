@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        button { margin: 10px; padding: 10px 20px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 JavaScript Debug Test</h1>
+    
+    <div id="status"></div>
+    
+    <button onclick="testBasicJS()">Test Basic JavaScript</button>
+    <button onclick="testScriptLoad()">Test Script Loading</button>
+    <button onclick="testFunctions()">Test Functions</button>
+    <button onclick="testDOM()">Test DOM Elements</button>
+    
+    <div id="results"></div>
+
+    <script>
+        function log(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = type;
+            div.textContent = `${new Date().toLocaleTimeString()}: ${message}`;
+            results.appendChild(div);
+        }
+
+        function testBasicJS() {
+            log('Testing basic JavaScript...', 'info');
+            try {
+                // Test basic JavaScript functionality
+                const test = 'Hello World';
+                log(`Basic JS works: ${test}`, 'success');
+                
+                // Test Set functionality
+                const testSet = new Set();
+                testSet.add('test');
+                log(`Set functionality works: ${testSet.has('test')}`, 'success');
+                
+                // Test localStorage
+                localStorage.setItem('test', 'value');
+                const retrieved = localStorage.getItem('test');
+                log(`localStorage works: ${retrieved}`, 'success');
+                
+            } catch (error) {
+                log(`Basic JS error: ${error.message}`, 'error');
+            }
+        }
+
+        function testScriptLoad() {
+            log('Testing script loading...', 'info');
+            try {
+                const script = document.createElement('script');
+                script.src = 'script.js';
+                script.onload = () => {
+                    log('Script loaded successfully', 'success');
+                    testGlobalVariables();
+                };
+                script.onerror = (error) => {
+                    log(`Script load error: ${error}`, 'error');
+                };
+                document.head.appendChild(script);
+            } catch (error) {
+                log(`Script test error: ${error.message}`, 'error');
+            }
+        }
+
+        function testGlobalVariables() {
+            log('Testing global variables...', 'info');
+            try {
+                // Test if global variables are accessible
+                if (typeof selectedSkills !== 'undefined') {
+                    log('selectedSkills variable exists', 'success');
+                } else {
+                    log('selectedSkills variable missing', 'error');
+                }
+                
+                if (typeof projectIdeas !== 'undefined') {
+                    log(`projectIdeas exists with ${projectIdeas.length} items`, 'success');
+                } else {
+                    log('projectIdeas variable missing', 'error');
+                }
+                
+                if (typeof topicCategories !== 'undefined') {
+                    log(`topicCategories exists with ${topicCategories.length} items`, 'success');
+                } else {
+                    log('topicCategories variable missing', 'error');
+                }
+                
+            } catch (error) {
+                log(`Global variables error: ${error.message}`, 'error');
+            }
+        }
+
+        function testFunctions() {
+            log('Testing functions...', 'info');
+            try {
+                if (typeof initializeApp === 'function') {
+                    log('initializeApp function exists', 'success');
+                } else {
+                    log('initializeApp function missing', 'error');
+                }
+                
+                if (typeof setupEventListeners === 'function') {
+                    log('setupEventListeners function exists', 'success');
+                } else {
+                    log('setupEventListeners function missing', 'error');
+                }
+                
+                if (typeof generateIdeas === 'function') {
+                    log('generateIdeas function exists', 'success');
+                } else {
+                    log('generateIdeas function missing', 'error');
+                }
+                
+            } catch (error) {
+                log(`Functions test error: ${error.message}`, 'error');
+            }
+        }
+
+        function testDOM() {
+            log('Testing DOM elements...', 'info');
+            try {
+                // Test if we can access DOM elements
+                const generateBtn = document.getElementById('generateIdeasBtn');
+                if (generateBtn) {
+                    log('Generate Ideas button found', 'success');
+                } else {
+                    log('Generate Ideas button not found', 'error');
+                }
+                
+                const topicsGrid = document.getElementById('topicsGrid');
+                if (topicsGrid) {
+                    log('Topics grid found', 'success');
+                } else {
+                    log('Topics grid not found', 'error');
+                }
+                
+                const skillsGrid = document.querySelector('.skills-grid');
+                if (skillsGrid) {
+                    log('Skills grid found', 'success');
+                } else {
+                    log('Skills grid not found', 'error');
+                }
+                
+            } catch (error) {
+                log(`DOM test error: ${error.message}`, 'error');
+            }
+        }
+
+        // Auto-run basic tests
+        window.onload = function() {
+            log('Page loaded, running basic tests...', 'info');
+            testBasicJS();
+        };
+    </script>
+</body>
+</html> 

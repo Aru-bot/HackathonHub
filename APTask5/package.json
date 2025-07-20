@@ -1,0 +1,145 @@
+{
+  "name": "hackathonhub",
+  "version": "1.0.0",
+  "description": "A comprehensive web application for generating personalized hackathon project ideas, finding teammates, and accessing learning resources.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "serve": "python -m http.server 8000",
+    "build": "echo 'No build process required - static files ready to deploy'",
+    "deploy": "echo 'Deploy static files to your hosting service'",
+    "lint": "echo 'Linting not configured - consider adding ESLint for JavaScript'",
+    "test": "echo 'Testing not configured - consider adding Jest for unit tests'",
+    "optimize": "echo 'Consider using tools like Terser for JS minification and CSSNano for CSS optimization'"
+  },
+  "keywords": [
+    "hackathon",
+    "project-ideas",
+    "team-finder",
+    "web-development",
+    "javascript",
+    "css",
+    "html",
+    "responsive-design",
+    "accessibility",
+    "performance",
+    "social-impact",
+    "learning-resources",
+    "github-integration",
+    "quiz-system",
+    "idea-generator"
+  ],
+  "author": "HackathonHub Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/hackathonhub.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/hackathonhub/issues"
+  },
+  "homepage": "https://yourusername.github.io/hackathonhub",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "jest": "^29.0.0",
+    "terser": "^5.0.0",
+    "cssnano": "^6.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {},
+  "optionalDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/yourusername"
+  },
+  "contributors": [
+    {
+      "name": "Your Name",
+      "email": "your.email@example.com",
+      "url": "https://github.com/yourusername"
+    }
+  ],
+  "metadata": {
+    "title": "HackathonHub - Idea Generator & Project Management",
+    "description": "Discover personalized hackathon project ideas, find teammates, and access learning resources. Built with modern web technologies.",
+    "keywords": "hackathon, project ideas, team finder, web development, javascript, css, html",
+    "author": "HackathonHub Team",
+    "robots": "index, follow",
+    "viewport": "width=device-width, initial-scale=1.0",
+    "theme-color": "#6366f1",
+    "msapplication-TileColor": "#6366f1",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "apple-mobile-web-app-title": "HackathonHub"
+  },
+  "performance": {
+    "targets": {
+      "first-contentful-paint": "< 1.5s",
+      "largest-contentful-paint": "< 2.5s",
+      "cumulative-layout-shift": "< 0.1",
+      "first-input-delay": "< 100ms"
+    }
+  },
+  "accessibility": {
+    "wcag": "2.1 AA",
+    "features": [
+      "Keyboard navigation",
+      "Screen reader support",
+      "High contrast mode",
+      "Reduced motion support",
+      "Semantic HTML",
+      "ARIA labels"
+    ]
+  },
+  "features": {
+    "core": [
+      "Personalized idea generation",
+      "Interactive quiz system",
+      "Skill-based filtering",
+      "Social impact focus",
+      "Team finder",
+      "Learning resources",
+      "GitHub integration",
+      "Idea journal",
+      "Hackathon timer",
+      "Success stories"
+    ],
+    "technical": [
+      "Responsive design",
+      "Performance optimized",
+      "Cross-browser compatible",
+      "Accessibility compliant",
+      "Progressive enhancement",
+      "localStorage integration",
+      "Modern JavaScript",
+      "CSS Grid & Flexbox",
+      "Custom properties",
+      "Smooth animations"
+    ]
+  }
+} 
